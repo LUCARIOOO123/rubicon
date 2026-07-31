@@ -71,6 +71,10 @@ func note_changed(result:RubiconLevelNoteHitResult, has_ending_row:bool = false)
 	if result.scoring_hit == RubiconLevelNoteHitResult.Hit.HIT_NONE:
 		return
 	
+	if result.scoring_health_delta != 0:
+		health += result.scoring_health_delta
+		return
+	
 	if result.scoring_rating != RubiconLevelNoteHitResult.Judgment.JUDGMENT_NONE:
 		var rating_name:StringName = RubiconLevelNoteHitResult.Judgment.find_key(result.scoring_rating)
 		var health_addition:float = get(&"%s_health_addition" % [rating_name.to_lower().erase(0, 9)])

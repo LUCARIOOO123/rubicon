@@ -73,6 +73,7 @@ func spawn_note(index : int) -> void:
 
 	var graphic : RubiconLevelNote = _note_pool[define_key].pop_back()
 	if graphic == null:
+
 		var skin : RubiconLevelNoteMetadata = get_controller().get_note_database()[define_key]
 		var packed : PackedScene = skin.scene
 
